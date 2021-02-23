@@ -23,9 +23,9 @@
           <url>https://maven.pkg.github.com/HerculesCRUE/ib-asio-abstractions</url>
         </repository>
         <repository>
-          <id>github-domain-model</id>
+          <id>github-dataset-domain-model</id>
           <name>GitHub domain-model Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/HerculesCRUE/ib-domain-model</url>
+          <url>https://maven.pkg.github.com/HerculesCRUE/ib-dataset-domain-model</url>
         </repository>
       </repositories>
     </profile>
@@ -33,9 +33,14 @@
 
   <servers>
     <server>
-      <id>github</id>
+      <id>github-asio-abstractions</id>
       <username>${env.GITHUB_USER}</username>
-      <password>${env.GITHUB_TOKEN}</password>
+      <password>${env.GITHUB_USER_TOKEN}</password>
+    </server>
+    <server>
+      <id>github-dataset-domain-model</id>
+      <username>${env.GITHUB_USER}</username>
+      <password>${env.GITHUB_USER_TOKEN}</password>
     </server>
   </servers>
 </settings>
