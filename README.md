@@ -9,8 +9,8 @@
 | Módulo         | Procesador de datos                                          |
 | Tipo           | Software                                                     |
 | Objetivo       | Procesador de datos del módulo de entrada para el proyecto Backend SGI (ASIO). Recibe los datos del importador y los guarda en una base de datos intermedia |
-| Estado         | **85%** El procesador de datos está preparado para guardar los datos teniendo en cuenta que es una creación, modificación o borrado. Guarda versiones y fecha de procesado para diferenciar los datos entre distintas importaciones y guardar un historial |
-| Próximos pasos | Actualizarlo con las posibles mejoras que vayan surgiendo.   |
+| Estado         | **100%**  |
+| Próximos pasos |   |
 | Documentación  | [Manual de usuario](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/00-An%C3%A1lisis/Manual%20de%20usuario/Manual%20de%20usuario.md)<br />[Manual de despliegue](https://github.com/HerculesCRUE/ib-asio-composeset/blob/master/README.md)<br />[Documentación técnica](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/00-Arquitectura/arquitectura_semantica/documento_arquitectura/ASIO_Izertis_Arquitectura.md) |
 
 # ASIO - Procesador de entrada
