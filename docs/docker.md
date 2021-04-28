@@ -1,6 +1,6 @@
 # Generación de imagen Docker
 
-Los artefactos bootables están diseñados para poder ser distribuidos como imagen Docker. Se indicarán a continuación las intrucciones.
+Los artefactos bootables están diseñados para poder ser distribuidos como imagen Docker. A continuación, se indican las intrucciones.
 
 ## Compilación
 

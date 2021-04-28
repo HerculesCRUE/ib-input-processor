@@ -4,13 +4,14 @@
 
 | Entregable     | Procesador de entrada                                        |
 | -------------- | ------------------------------------------------------------ |
-| Fecha          | 17/12/2020                                                   |
+| Fecha          | 28/04/2020                                                   |
+| Revisado por   | Paloma Terán Pérez                                           |
 | Proyecto       | [ASIO](https://www.um.es/web/hercules/proyectos/asio) (Arquitectura Semántica e Infraestructura Ontológica) en el marco de la iniciativa [Hércules](https://www.um.es/web/hercules/) para la Semántica de Datos de Investigación de Universidades que forma parte de [CRUE-TIC](https://www.crue.org/proyecto/hercules/) |
 | Módulo         | Procesador de datos                                          |
 | Tipo           | Software                                                     |
 | Objetivo       | Procesador de datos del módulo de entrada para el proyecto Backend SGI (ASIO). Recibe los datos del importador y los guarda en una base de datos intermedia |
-| Estado         | **100%**  |
-| Próximos pasos |   |
+| Estado         | **100%**                                                     |
+| Próximos pasos |                                                              |
 | Documentación  | [Manual de usuario](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/00-An%C3%A1lisis/Manual%20de%20usuario/Manual%20de%20usuario.md)<br />[Manual de despliegue](https://github.com/HerculesCRUE/ib-asio-composeset/blob/master/README.md)<br />[Documentación técnica](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/00-Arquitectura/arquitectura_semantica/documento_arquitectura/ASIO_Izertis_Arquitectura.md) |
 
 # ASIO - Procesador de entrada
@@ -113,7 +114,7 @@ No es necesario especificar la clase de inicio de la aplicación, ya que el fich
 
 Se incluyen los resultados del testing y cobertura en los siguientes enlaces:
 
-* [Testing](http://herc-iz-front-desa.atica.um.es:8070/input-processor/surefire/surefire-report.html)
+* [Testing](https://reports.herculesasioizertis.desa.um.es/input-processor/surefire/surefire-report.html)
 * [Cobertura](https://sonarcloud.io/component_measures?id=HerculesCRUE_ib-input-processor&metric=coverage&view=list)
 
 ##  Documentación adicional
