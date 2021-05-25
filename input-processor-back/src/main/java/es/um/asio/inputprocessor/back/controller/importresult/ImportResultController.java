@@ -46,6 +46,7 @@ public class ImportResultController {
      */
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     static final class Mappings {
+    	
         /**
          * Controller request mapping.
          */
