@@ -26,49 +26,50 @@ import es.um.asio.inputprocessor.service.service.DatasetService;
 @Component
 public class InputListener {
 
-    /** Logger. */
-    private final Logger logger = LoggerFactory.getLogger(InputListener.class);
+	/** Logger. */
+	private final Logger logger = LoggerFactory.getLogger(InputListener.class);
 
-    /** The service redirector service. */
-    @Autowired
-    private ServiceRedirectorService serviceRedirectorService;
-    
-    /** The kafka service. */
-    @Autowired
-    private KafkaService kafkaService;
-    
-    /** The ETL service. */
-    @Autowired
-    private ETLService etlService;
+	/** The service redirector service. */
+	@Autowired
+	private ServiceRedirectorService serviceRedirectorService;
 
-    /**
-     * Method listening input topic name.
-     *
-     * @param data
-     *            the data
-     */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @KafkaListener(topics = "#{'${app.kafka.input-topic-name}'.split(',')}", containerFactory = "inputKafkaListenerContainerFactory")
-    public void listen(final InputData<DataSetData> data) {
+	/** The kafka service. */
+	@Autowired
+	private KafkaService kafkaService;
 
-        DataSetDataBase incomingData = (DataSetDataBase) data.getData();
-        
-        DatasetService service = serviceRedirectorService.redirect(incomingData);
-        if (service != null) {
-            logger.info("Saving {} into DB", incomingData.getClass());
-            logger.info("GRAYLOG-IP Importado objeto de tipo: " + incomingData.getClass().getSimpleName());
-            service.save(incomingData);
-        }
-        
-        if(!(incomingData instanceof ImportResult)) {
-            logger.info("Send data to general kafka topic: {}", data.getClass());
-            kafkaService.sendGeneralDataTopic(data);
-        }             
+	/** The ETL service. */
+	@Autowired
+	private ETLService etlService;
 
-        if(incomingData instanceof ImportResult && ((ImportResult)incomingData).getExitStatusCode() == ExitStatusCode.COMPLETED) {
-            logger.info("Running ETL service");
-            etlService.run(((ImportResult)incomingData).getVersion());
-        }
-    }
+	/**
+	 * Method listening input topic name.
+	 *
+	 * @param data the data
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@KafkaListener(topics = "#{'${app.kafka.input-topic-name}'.split(',')}", containerFactory = "inputKafkaListenerContainerFactory")
+	public void listen(final InputData<DataSetData> data) {
+
+		DataSetDataBase incomingData = (DataSetDataBase) data.getData();
+
+		DatasetService service = serviceRedirectorService.redirect(incomingData);
+		if (service != null) {
+			logger.info("Saving {} into DB", incomingData.getClass());
+			logger.info("GRAYLOG-IP Importado objeto de tipo: " + incomingData.getClass().getSimpleName());
+			service.save(incomingData);
+		}
+
+		if (!(incomingData instanceof ImportResult)) {
+			logger.info("Send data to general kafka topic: {}", data.getClass());
+			kafkaService.sendGeneralDataTopic(data);
+		}
+
+		logger.info("******** incomingData to process: " + incomingData.getClass().toString());
+		if (incomingData instanceof ImportResult
+				&& ((ImportResult) incomingData).getExitStatusCode() == ExitStatusCode.COMPLETED) {
+			logger.info("Running ETL service");
+			etlService.run(((ImportResult) incomingData).getVersion());
+		}
+	}
 
 }
