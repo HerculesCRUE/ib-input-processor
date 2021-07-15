@@ -92,7 +92,7 @@ public class ETLServiceImpl implements ETLService {
 		importResult.setStatus(Constants.KO);
 
 		boolean statusMSETLListener = getStatusETL();
-
+		this.logger.info("CALL getStatusListeners Management-system, status listeners: " + statusMSETLListener);
 		if (statusMSETLListener) {
 
 			try {
@@ -129,7 +129,7 @@ public class ETLServiceImpl implements ETLService {
 	 *         por etl)
 	 */
 	public Boolean getStatusETL() {
-
+		this.logger.info("Método getStatusETL()");
 		try {
 			URL url = new URL(urlmanagementsystem);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -146,6 +146,7 @@ public class ETLServiceImpl implements ETLService {
 			Boolean response = false;
 			while ((output = br.readLine()) != null) {
 				response = Boolean.valueOf(output);
+				this.logger.info("DATA from service " + urlmanagementsystem + " , response: " + response);
 			}
 			conn.disconnect();
 			return response;
