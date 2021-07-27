@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.cfg.AvailableSettings;
+import org.hibernate.dialect.MariaDB53Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -111,7 +112,7 @@ public class PersistenceConfig {
 
 		final Properties jpaProperties = new Properties();
 		if (StringUtils.isNotBlank(jpa.getDialect())) {
-			jpaProperties.put(AvailableSettings.DIALECT, jpa.getDialect());
+			jpaProperties.put(AvailableSettings.DIALECT, "es.um.asio.inputprocessor.service.config.CustomDialect");
 		}
 
 		if (jpa.isGenerateDdl()) {
