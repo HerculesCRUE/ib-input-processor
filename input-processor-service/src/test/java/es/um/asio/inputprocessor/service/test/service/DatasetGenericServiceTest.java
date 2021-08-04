@@ -47,7 +47,7 @@ public class DatasetGenericServiceTest {
 		// Mock save
 		Mockito.when(this.repository.save(any())).thenAnswer(invocation -> {
 			final Proyecto proyecto = invocation.getArgument(0);
-			proyecto.setEntityId("1");
+			proyecto.setEntityId("id1");
 			return proyecto;
 		});
 	}
