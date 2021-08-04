@@ -21,37 +21,36 @@ import lombok.NoArgsConstructor;
 @RequestMapping(ImportResultController.Mappings.BASE)
 public class ImportResultController {
 
-    /**
-     * Proxy service implementation for {@link ImportResult}.
-     */
-    @Autowired
-    private ImportResultProxy proxy;
+	/**
+	 * Proxy service implementation for {@link ImportResult}.
+	 */
+	@Autowired
+	private ImportResultProxy proxy;
 
-    /**
-     * Search import results.
-     *
-     * @param filter
-     *            the user filter
-     * @param pageable
-     *            Pagination configuration
-     * @return page containing results
-     */
-    @GetMapping(ImportResultController.Mappings.SEARCH)
-    public Page<ImportResultDto> searchImportResults(final ImportResultFilter filter, final Pageable pageable) {      
-        return this.proxy.findPaginated(filter, pageable);
-    }
-  
-    /**
-     * Mappings.
-     */
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    static final class Mappings {
-    	
-        /**
-         * Controller request mapping.
-         */
-        protected static final String BASE = "/import-result";
+	/**
+	 * Search import results.
+	 *
+	 * @param filter   the user filter
+	 * @param pageable Pagination configuration
+	 * @return page containing results
+	 */
+	@GetMapping(ImportResultController.Mappings.SEARCH)
+	public Page<ImportResultDto> searchImportResults(final ImportResultFilter filter, final Pageable pageable) {
+		// FindPAginated
+		return this.proxy.findPaginated(filter, pageable);
+	}
 
-        protected static final String SEARCH = "/search";
-    }
+	/**
+	 * Mappings.
+	 */
+	@NoArgsConstructor(access = AccessLevel.PRIVATE)
+	static final class Mappings {
+
+		/**
+		 * Controller request mapping.
+		 */
+		protected static final String BASE = "/import-result";
+
+		protected static final String SEARCH = "/search";
+	}
 }
