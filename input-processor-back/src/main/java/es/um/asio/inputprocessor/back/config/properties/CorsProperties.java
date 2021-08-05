@@ -10,7 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Cors related configuration properties.
+ * Cors related configuration properties (CorsProperties).
  */
 @ConfigurationProperties("app.cors")
 @Validated
@@ -18,47 +18,46 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CorsProperties {
-    /**
-     * Enable or disable the CORS filter for this application.
-     */
-    private boolean enabled;
+	/**
+	 * Enable or disable the CORS filter for this application.
+	 */
+	private boolean enabled;
 
-    /**
-     * Allowed origin for CORS.
-     */
-    private String allowedOrigin;
+	/**
+	 * Allowed origin for CORS.
+	 */
+	private String allowedOrigin;
 
-    /**
-     * Allowed methods for CORS.
-     */
-    private String allowedMethods;
+	/**
+	 * Allowed methods for CORS.
+	 */
+	private String allowedMethods;
 
-    /**
-     * The allowed headers for CORS.
-     */
-    private String[] allowedHeaders;
+	/**
+	 * The allowed headers for CORS.
+	 */
+	private String[] allowedHeaders;
 
-    /**
-     * CORS preflight max age allowed.
-     */
-    private String maxAge;
+	/**
+	 * CORS preflight max age allowed.
+	 */
+	private String maxAge;
 
-    /**
-     * Gets the allowed headers for CORS.
-     * 
-     * @return allowed headers for CORS.
-     */
-    public String[] getAllowedHeaders() {
-        return Arrays.copyOf(this.allowedHeaders, this.allowedHeaders.length);
-    }
+	/**
+	 * Gets the allowed headers for CORS.
+	 * 
+	 * @return allowed headers for CORS.
+	 */
+	public String[] getAllowedHeaders() {
+		return Arrays.copyOf(this.allowedHeaders, this.allowedHeaders.length);
+	}
 
-    /**
-     * Sets the allowed headers for CORS.
-     * 
-     * @param allowedHeaders
-     *            allowed headers for CORS.
-     */
-    public void setAllowedHeaders(final String[] allowedHeaders) {
-        this.allowedHeaders = Arrays.copyOf(allowedHeaders, allowedHeaders.length);
-    }
+	/**
+	 * Sets the allowed headers for CORS.
+	 * 
+	 * @param allowedHeaders allowed headers for CORS.
+	 */
+	public void setAllowedHeaders(final String[] allowedHeaders) {
+		this.allowedHeaders = Arrays.copyOf(allowedHeaders, allowedHeaders.length);
+	}
 }
