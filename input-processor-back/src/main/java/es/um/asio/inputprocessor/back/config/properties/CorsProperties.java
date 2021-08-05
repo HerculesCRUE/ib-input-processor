@@ -10,7 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * Cors related configuration properties (CorsProperties).
+ * Cors related configuration properties.
  */
 @ConfigurationProperties("app.cors")
 @Validated
